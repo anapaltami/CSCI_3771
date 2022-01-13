@@ -1,0 +1,27 @@
+1. Why would it be a bad idea to enter the following bash commands?
+	cd
+	rm -r
+A: The cd command takes you back to your home or root directory. If you use rm -r within your home or root directory your files will be recursively deleted completely without providing you with a warning.
+
+3. What is the difference between compiling and linking?
+A: Compiling goes through your code and will flag errors (bugs) in your code which creates an object file. Linking links the object file to an executable file to run your code.
+
+9. Would the following code compile in C++? Why or why not?
+	double x = 32.0;
+	int n = x;
+A: It will not compile because it is attempting to assign a double type value to an integer data type.
+
+10. What is wrong with the following code, and how would you fix it?
+	int sum;
+	for(int i=0; i<1000; ++i) {
+		sum += i;
+	}
+	printf("Sum of 0 to 999 is %d\n", sum);
+A: It will compile, but sum could be initialized with random unknown data. So the accuracy of the result could be compromised. It would be a good idea to initialize sum with 0 to ensure it starts at 0.
+
+11. What is wrong with the following code, and how would you fix it?
+	int n = 1;
+	if(n = 0) {
+		printf("n is zero\n");
+	}
+A: In the if statement 0 is assigned to n which creates a self fulfilling "if true" situation. Use == instead of a single = to fix this issue.
