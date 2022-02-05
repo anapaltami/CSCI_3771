@@ -1,0 +1,34 @@
+#1 What is a pointer? What is the closest thing to a pointer in Java?
+	A pointer is a memory address. Java objects would be the closest thing to pointers.
+#9 Describe what each of the following declare:
+#	(a) int* a;
+		Dereferenced variable "a" is an int.
+#	(b) const int b;
+		Int variable "b" is constant, can't be changed.
+#	(c) const int* c;
+		Pointer "c" can be changed but not the int variable it points to.
+#	(d) int* const d;
+		Pointer "d" is constant and can't be changed but the int it points to can be changed.
+#	(e) const int* const e;
+		Cannot change the pointer "e" nor the int it point to as both are constant.
+#12 This code computes both the square and cube of a number. What is wrong with it and, how would you fix it?
+#	double* powers(double x, double* x3_ptr) {
+#		double x2 = x*x;
+#		*x3_ptr = x2*x;
+#		return &x2;
+#	}
+		The function itself has become the pointer to a double. I would remove the very first *.
+#14 Sometimes when you call this function, you get a seg fault. In what line is the seg fault occurring?
+#	void twitchy(int in, int* out) {
+#		int sum = 0;
+#		for(int i = 0; i<n; ++i) {
+#			if(i%2) sum + 5;
+#			else	sum /= 2;
+#		}
+#		*out = sum;
+#	}
+		At the end the pointer "out" is being dereferenced which will end in a seg fault.
+#15 The following code does not compile. What is wrong and how would you fix it?
+#	int n = -1;
+#	scanf("%d", n)
+		In the scanf line make "n" into "&n" so the value from the scanf function can be properly stored in the location of "n"
