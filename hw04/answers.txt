@@ -1,0 +1,38 @@
+#1 Describe the difference between how Java and C++ handle arrays.
+	Java handles them like objects and keeps track of what is stored in them as well as their length. In C++ arrays are like pointers to data in memory where the pointer points to the first element in the array. You as the programmer have to keep track of the length of said array yourself in your code by specifying the length.
+#3 Suppose you have a variable declared like this:
+#	int* n;
+#  Can you pass n to a function declared like this:
+#	void f(const int* b);
+#  Why or why not?
+	Yes you can, it is perfectly legal to pass a non-const variable to a function with a const argument, just not vice versa.
+#5 Suppose you have a function that takes an array as an argument in the usual way, which is declared as:
+#	void f(int* array, int length);
+#  Suppose you also have an array declared as:
+#	int a[128];
+#  How would you pass a sub-array containing only the third through the sixth elements of a to the function f?
+	f(a+2, 4);
+#6 What is wrong with the following code, and how would you fix it?
+#	char copy[8];
+#	const char* string = "hello";
+#	for(int i=0; string[i] != '\0'; ++i) {
+#		copy[i] = string[i];
+#	}
+#	printf("%s\n", copy);
+	char copy[8];
+	const char* string = "hello";
+	int i = 0;	// move int i outside of loop
+	for( ; string[i] != '\0'; ++i) {
+		copy[i] = string[i];
+	}
+	copy[i] = '\0';	// add null character to end of string
+	printf("%s\n", copy);
+#8 What is wrong with the following code, and how would you fix it?
+#	double* allocateArray(int length) {
+#		double array[length];
+#		return array;
+#	}
+	double* allocateArray(int length) {
+		double* array = new double[length];	// heap memory
+		return array;
+	}
