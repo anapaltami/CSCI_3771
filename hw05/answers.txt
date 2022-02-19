@@ -1,0 +1,8 @@
+#1 What is the problem with two-dimensional arrays in C/C++?
+	C was invented to write operating systems so is not designed for handeling tables and images.
+#2 Describe two ways to work around C/C++'s problems with two-dimensional arrays.
+	If you don't care about passing your 2d array to a function, you can declare a 2d array like "int table[2][2];" and access elements within that array like "int elem = table[1][1];". Alternatively, if you plan on passing your 2d array to functions, you can seperate the rows of your 2d array along a single line array (flat array) by skipping over j chunks of data which would be your width of the array and then accessing specific elements by adding i elements. To further improve upon te flat array method, you can simply make the array an array of pointers that point to individual arrays of elements.
+#3 Suppose you have a function that returns a two-dimenstional array of ints allocated using the "Numerical Recipes Trick". The caller should not be able to modify the values stored in this array or the pointers to rows. The function declaration looks like this:
+#	________________________ getArray();
+#  Fill in the blank.
+	const int** array = getArray();
