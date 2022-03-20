@@ -1,5 +1,10 @@
-#1
-#2
+#1 Private variables aren't initialized. Default/blank constructor hasn't been added.
+#2 Change to this->position = position; and this->velocity = velocity;. Also method should have Projectile::Projectile in the .cc file.
 #3
-#5
+  a) Returns a pointer to an int and the method takes a pointer to an int as an argument.
+  b) Takes a pointer to an int as an argument, returns a pointer to an int, the return type cannot be changed.
+  c) Takes a pointer to an int as an argument, returns a pointer to an int, the return type and data cannot be changed.
+  d) Takes a pointer to a const int as an argument, returns a pointer to a const int and the return data and type cannot be changed.
+  e) Takes a pointer to a const int as an argument, returns a pointer to a const in and the return data and type cannot be changed, object also cannot be changed.
+#5 A pointer can point to a value and its place in memory, a reference only points to the place in memory.
 #10
