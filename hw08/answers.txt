@@ -1,5 +1,19 @@
-#2
-#6
-#7
-#8
-#12
+#2 Describe "ownership" as it pertain to C++ memory management.
+	Way to keep track of heap memory management. The object that owns a pointer is responsible for deleting that pointer in its destructor.
+	
+#6 What is the "rule of five"?
+	The extended version of the rule of three. If you incorporate any of the following in your code, you should incorporate all five:
+		- destructor
+		- move constructor
+		- move=
+		- copy constructor
+		- copy=
+
+#7 What is copy elision?
+	When passing objects, if the object is about to go out of scope, the compiler can skip the copy instruction. Thus omiting the copy.
+
+#8 What is the difference between copying and moving an object?
+	When passing objects, copying preserves the original variable while moving destroys the original variable. Also copying is for lvalues (variables) while moving is for rvalues (temporary).
+
+#12 When would you need to use a forward declaration?
+	If you have two classes that each call on eachother (with pointers or references to the other class), instead of including the headers of both classes in each header (circular includes) you can instead declare the other class ahead of time within the code to let the compiler know it exists on its pass through so it doesn't get confused when the class calls for another class that it is unaware of yet. You forward declare within the respective header files instead of including the header to the other class.
