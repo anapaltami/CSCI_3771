@@ -1,0 +1,25 @@
+#2  Why would you mark a method as virtual? Why wouldn't you?
+        You would mark a method as virtual if you want to allow a subclass to override that method or if you want to make a pure virtual method which is the C++ equivalent of a Java abstract method. Unfortunately, virtual methods also have a speed penalty. So if you go arbitrarily marking your methods as virtual methods, your code will run much slower and you lose C++ programmer cool points. :) On top of which, overriding virtual methods override all methods with the same name.
+
+#4  What is the difference between a dynamic cast and a static cast? Why would you use one over the other?
+        Dynamic casting works like Java. Dynamic casting first checks to see if it is legal for the requested object to be casted to the requested type. Static casting on the other hand, doesn't check the object's type at runtime. In instances where the object being dynamically cast has multiple subclasses, dynamic casting would fail. Also dynamic casting is slower because it looks through more inhertiance trees at runtime and the time it takes to do so can vary depending on the complexity of your inheritance trees. Despite this, dynamic casting is still the safest and in most cases dynamic casting is fine. Static casting might be used in situations where the increase in speed is important and you know that the casting is legal and won't leave a mess of your code in the process.
+
+#6  Suppose you have a Fruit base class and a Banana subclass. Suppose you have a banana declared like this:
+        Banana b;
+    What is the difference between what happens when you pass your banana to a method declared like this:
+        void eat(Fruit f);
+    vs. one declared like this:
+        void eat(const Fruit& f);
+
+
+#9  Suppose you have an Exception class. What is wrong with the following code and how would you fix it?
+        throw new Exception("Help me, Spock");
+        You are creating an Exception object on heap memory with a pointer to the exception. Just use `throw Exception("Help me, Spock");` which creates
+
+#10 What is wrong with the following code and how would you fix it?
+        try {
+            // some code here that might throw an exception
+        } catch(Exception e) {
+            std::cerr << "Error occured: " << e.what() << std::endl;
+        }
+        You always catch stuff as a reference, so make sure its catch(Exception& e) otherwise it copies the exception to the new exception.
