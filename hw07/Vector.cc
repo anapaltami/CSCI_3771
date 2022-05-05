@@ -32,32 +32,27 @@ void Vector::set(double x, double y, double z) {
 	this->z = z;
 }	// end of set method
 
-double Vector::add(const Vector& vector) const {
-	double xx = x + vector.getX();
-	double yy = y + vector.getY();
-	double zz = z + vector.getZ();
-	return xx+yy+zz;
-}	// end of add method
+Vector Vector::operator+(const Vector& vector) const {
+	return Vector(x + vector.x, y + vector.y, z + vector.z);
+}	// end of + operator method
+
+Vector Vector::operator-(const Vector& vector) const {
+	return Vector(x - vector.x, y - vector.y, z - vector.z);
+} // end of - operator method
 
 Vector& Vector::operator+=(const Vector& vector) {
-	x += vector.getX();
-	y += vector.getY();
-	z += vector.getZ();
+	x += vector.x;
+	y += vector.y;
+	z += vector.z;
 	return *this;
 }	// end of += operator method
 
-double Vector::multiply(const double a) {
-	x = x * a;
-	y = y * a;
-	z = z * a;
-	return x+y+z;
-}	//end of multiply method
+Vector Vector::operator*(const double n) const {
+	return Vector(x * n, y * n, z * n);
+}	// end of multiply method
 
-double Vector::mulVector(const Vector& vector) {
-	double xx = x * vector.getX();
-	double yy = y * vector.getY();
-	double zz = z * vector.getZ();
-	return xx+yy+zz;
+double Vector::operator*(const Vector& vector) const {
+	return (x * vector.x) + (y * vector.y) + (z * vector.z);
 }	// end of mulVector method
 
 std::ostream& operator<<(std::ostream& out, const Vector& v) {

@@ -19,10 +19,11 @@ public:
 	
 	void set(double x, double y, double z);	// setter
 	
-	double add(const Vector& vector) const;	// add method
+	Vector operator+(const Vector& vector) const;	// + operator method
+	Vector operator-(const Vector& vector) const; // - operator method
 	Vector& operator+=(const Vector& vector);	// += operator method
-	double multiply(const double a);	// multiply method
-	double mulVector(const Vector& vector);	// mulVector method
+	Vector operator*(const double n) const;	// multiply method
+	double operator*(const Vector& vector) const;	// mulVector method
 	
 	friend std::ostream& operator<<(std::ostream& out, const Vector& v);
 	
