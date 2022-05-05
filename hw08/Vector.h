@@ -1,23 +1,22 @@
 #ifndef VECTOR_H
 #define VECTOR_H
+#include <ostream>
 
 class Vector {
 
 private:
-	double x = 0.0;
 	double y = 0.0;
 	double z = 0.0;
 
 public:
 	Vector();	// constructor
-	Vector(double x, double y, double z);	// constructor
+	Vector(double y, double z);	// constructor
 	virtual ~Vector();	// destructor
 	
-	double getX() const;	// getter
 	double getY() const;	// getter
 	double getZ() const;	// getter
 	
-	void set(double x, double y, double z);	// setter
+	void set(double y, double z);	// setter
 	
 	Vector operator+(const Vector& vector) const;	// + operator method
 	Vector operator-(const Vector& vector) const; // - operator method
@@ -25,8 +24,7 @@ public:
 	Vector operator*(const double n) const;	// multiply method
 	double operator*(const Vector& vector) const;	// mulVector method
 	
-	friend std::ostream& operator<<(std::ostream& out, const Vector& v);
-	
+	friend std::ostream& operator<<(std::ostream& out, const Vector& v);	
 };	// end of Vector class
 
 #endif
