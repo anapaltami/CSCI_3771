@@ -14,7 +14,7 @@
 
 #9  Suppose you have an Exception class. What is wrong with the following code and how would you fix it?
         throw new Exception("Help me, Spock");
-        You are creating an Exception object on heap memory with a pointer to the exception. Just use `throw Exception("Help me, Spock");` which creates
+        You are creating an Exception object on heap memory with a pointer to the exception. Just use `throw Exception("Help me, Spock");
 
 #10 What is wrong with the following code and how would you fix it?
         try {
